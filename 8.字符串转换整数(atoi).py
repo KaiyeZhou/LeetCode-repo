@@ -63,3 +63,15 @@ class Solution:
         if res < -2**31:
             return -2**31
         return res
+
+        ### 正则
+        '''
+        正则匹配表达式：r"[\-, \+]?\d+"，方括号表示匹配其中的任意一个字符，紧跟的问号表示匹配前一个字符0次或1次，\d表示匹配任意一个数字，紧跟的加号表示匹配前一个字符1次或无限次；
+        '''
+        import re
+        s = str.lstrip()
+        r = re.match(r"[\-, \+]?\d+", s)
+        r = r.group() if r else 0
+        r = int(r) if -2**31 <= int(r) <= 2**31 - 1 else ( -2**31 if int(r) < -2**31 else 2**31 -1) # 判断是否超出32位
+
+        return r
