@@ -6,7 +6,7 @@ class Solution:
         dp_max = [nums[0]] * n
         dp_min = [nums[0]] * n
         for i in range(1, n):
-            dp_max[i] = max(dp_max[i-1] * nums[i], dp_min[i-1] * nums[i], nums[i])
+            dp_max[i] = max(dp_max[i-1] * nums[i], dp_min[i-1] * nums[i], nums[i])   # 表示以第i个元素结尾的连续子数组的最大乘积
             dp_min[i] = min(dp_max[i-1] * nums[i], dp_min[i-1] * nums[i], nums[i])
             res = max(res, dp_max[i])
         return res
