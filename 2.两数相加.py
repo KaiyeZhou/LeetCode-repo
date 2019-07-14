@@ -11,7 +11,7 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        # 如果有一个链表为空，返回另外一个
+        # 如果有一个链表为空，返回另外一个链表
         if l1 is None:
             return l2
         if l2 is None:
@@ -36,4 +36,4 @@ class Solution(object):
                 res.next = ListNode(1)     # res的下一节点设为1
         res = tmp.next     ### 去掉第一个节点0
         del tmp
-        return res  
+        return res
