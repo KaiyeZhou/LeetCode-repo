@@ -1,6 +1,6 @@
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
-        动态规划
+        #动态规划
         dp = [0 for _ in range(len(s) + 1)] # 多+1 防止字符串为空
         for i in range(1, len(s)):
             if s[i] == ')':
