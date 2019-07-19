@@ -29,5 +29,5 @@ def merge(left, right):
     return res
 
 arr = [17, 3, 2, 7, 5, 15, 4, 9, 8]
-arr_sort = mergeSort(arr)
-print(arr_sort)
+arrsort = mergeSort(arr)
+print(arrsort)
