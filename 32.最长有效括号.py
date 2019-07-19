@@ -28,3 +28,17 @@ class Solution:
                     else:                 #如果此时还有 则计算与栈顶的索引相减来计算长度
                         maxlen = max(i - stack[-1], maxlen)
         return maxlen
+
+        # 栈2
+        stack = [-1]
+        res = 0
+        for i, x in enumerate(s):
+            if x == "(":
+                stack.append(i)
+            else:
+                stack.pop()
+                if stack:
+                    res = max(res, i - stack[-1])
+                else:
+                    stack.append(i)          
+        return res
