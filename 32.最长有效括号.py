@@ -1,14 +1,14 @@
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
-        # 动态规划
-        # dp = [0 for _ in range(len(s) + 1)] # 多+1 防止字符串为空
-        # for i in range(1, len(s)):
-        #     if s[i] == ')':
-        #         if i - dp[i - 1] - 1 >= 0 and s[i - dp[i - 1] - 1] == '(':
-        #             dp[i] = dp[i - 1] + 2
-        #             if i - dp[i - 1] - 2 >= 0:
-        #                 dp[i] += dp[i - dp[i - 1] - 2]
-        # return max(dp)
+        动态规划
+        dp = [0 for _ in range(len(s) + 1)] # 多+1 防止字符串为空
+        for i in range(1, len(s)):
+            if s[i] == ')':
+                if i - dp[i - 1] - 1 >= 0 and s[i - dp[i - 1] - 1] == '(':
+                    dp[i] = dp[i - 1] + 2
+                    if i - dp[i - 1] - 2 >= 0:
+                        dp[i] += dp[i - dp[i - 1] - 2]
+        return max(dp)
         
         # 栈
         st = 0
