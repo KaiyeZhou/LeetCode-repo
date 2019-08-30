@@ -25,3 +25,6 @@ class Solution:
         ss = list(map(str, s.split(' ')))
         sss = '%20'.join(ss)
         return sss
+
+        # solution
+        return s.replace(' ', '%20')
