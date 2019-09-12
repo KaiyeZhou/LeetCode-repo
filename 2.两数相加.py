@@ -1,3 +1,18 @@
+'''
+给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+
+示例：
+输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
+输出：7 -> 0 -> 8
+原因：342 + 465 = 807
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/add-two-numbers
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+'''
+
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -32,6 +47,7 @@ class Solution(object):
             flag = (tmp_sum + flag) // 10      # 进位的数
             res.next = ListNode(tmp_res)
             res = res.next
+            # 为了防止l1和l2都为空，但是最后一位有进位，因此在最前面加上一个1，比如[5],[5]，输出是[0,1]
             if flag:                         # 如果flag不为0，就是对应位置相加后有进位
                 res.next = ListNode(1)     # res的下一节点设为1
         res = tmp.next     ### 去掉第一个节点0
