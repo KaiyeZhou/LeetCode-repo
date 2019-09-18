@@ -5,29 +5,29 @@
 ***************https://www.cnblogs.com/franknihao/p/9416145.html************
 '''
 
-# def check(board, pos):
-#     x, y = pos
-#     blen = len(board)
-#     for i in range(x):
-#         for j in range(blen):
-#             if board[i][j] == 1:
-#                 if j == y or abs(j - y) == abs(x - i):
-#                     return False
-#     return True
+def check(board, pos):
+    x, y = pos
+    blen = len(board)
+    for i in range(x):
+        for j in range(blen):
+            if board[i][j] == 1:
+                if j == y or abs(j - y) == abs(x - i):
+                    return False
+    return True
 
-# def EightQueen(board, row):
-#     blen = len(board)
-#     if row == blen:           # 来到不存在的第九行（假设共八行八列）
-#         print(board)
-#         return True
-#     for possibleY in range(blen):
-#         if check(board, (row, possibleY)):
-#             board[row][possibleY] = 1            # 放置一个Queen
-#             if not EightQueen(board, row + 1):    # 这里其实是本行下面所有行放置皇后的入口，但是如果最终这条路没有找到一个解，那么
-#                 board[row][possibleY] = 0         # 应该将刚才放置的皇后收回，再去寻找下一个可能发生的解
-#             else:
-#                 return True
-#     return False
+def EightQueen(board, row):
+    blen = len(board)
+    if row == blen:           # 来到不存在的第九行（假设共八行八列）
+        print(board)
+        return True
+    for possibleY in range(blen):
+        if check(board, (row, possibleY)):
+            board[row][possibleY] = 1            # 放置一个Queen
+            if not EightQueen(board, row + 1):    # 这里其实是本行下面所有行放置皇后的入口，但是如果最终这条路没有找到一个解，那么
+                board[row][possibleY] = 0         # 应该将刚才放置的皇后收回，再去寻找下一个可能发生的解
+            else:
+                return True
+    return False
 
 ## 不创建二维数组，用一维数组,下标本身就代表了board中的某一行，然后值是指这一行中皇后放在第几列。
 def check(board,row,col):
