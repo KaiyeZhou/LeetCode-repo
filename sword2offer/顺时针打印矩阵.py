@@ -52,3 +52,35 @@ class Solution:
             res.append(tmp)
         res.reverse()
         return res
+
+    # solution 3
+    def aa(matrix):
+        rows=len(matrix)
+        cols=len(matrix[0])
+        start=0
+        ret=[]
+        while start*2 <rows and start*2<cols:
+            bb(matrix,rows,cols,start,ret)
+            start +=1
+            
+        return ret
+
+
+    def bb(matrix,rows,cols,start,ret):
+        row=rows-start-1
+        col=cols-start-1
+        
+        for c in range(start,col+1):
+            ret.append(matrix[start][c])
+            
+        if start <row:
+            for r in range(start+1,row+1):
+                ret.append(matrix[r][col])
+                
+        if start <row and start<col:
+            for c in range(start,col)[::-1]:
+                ret.append(matrix[row][c])
+                
+        if start <row and start<col:
+            for r in range(start+1,row)[::-1]:
+                ret.append(matrix[r][start])
